@@ -5,9 +5,10 @@
 	Making Spaghetti
 */
 
-var ingredients = ["pasta", "sauce", "meatballs", "mushrooms", "onions"];
+var sauceIngredients = ["mushrooms", "onions", "garlic", "tomato paste", "tomato puree", "basil", "oregano", "parsley"];
 var readyToCook = true;
 var boiling = true;
+var boilMins = 2;
 var cookBook = "The Joy of Cooking";
 var reader = "iPad";
 
@@ -49,9 +50,16 @@ var recipeLookup = function (source, medium) {
 	return lookup;
 };
 
+// Array Function
+var cookSauce = function (number, ingredients) {
+
+};
+
+
+
 readyCheck(readyToCook);
 
-cookPasta(boiling,2);
+cookPasta(boiling, boilMins);
 var lookup = recipeLookup(cookBook,reader);
 
 
