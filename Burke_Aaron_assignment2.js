@@ -26,7 +26,7 @@ var readyCheck = function (state) {
 var cookPasta = function (waterBoil, minutesBoiling) {
 	if ((waterBoil) && (minutesBoiling < 8 )) {
 		console.log("The pasta is still cooking. Keep stirring!");
-		stirPasta(minutesBoiling); // Stirs the pasta until completion
+		return false;
 	}
 	else {
 		console.log("The pasta is finished!");
@@ -35,32 +35,50 @@ var cookPasta = function (waterBoil, minutesBoiling) {
 };
 
 // Number Function
-var stirPasta = function (minutesBoiling) {
-	while (minutesBoiling <= 8){
-		var stirCount = minutesBoiling * 2; // 2 Stirs for every minute
-		console.log(minutesBoiling + " Minutes of stiring pasta." + "Total stir count:" + stirCount);
-		minutesBoiling++;
+var stirSausage = function (cookingTime) {
+	var finishTime = 15;
+	while (cookingTime <= finishTime){
+		var stirCount = cookingTime * 2; // 2 Stirs for every minute
+		if (cookingTime == 1){
+			console.log(cookingTime + " minute of stiring the sausage." + "Total stir count:" + stirCount);
+			cookingTime++;
+		}
+		else {
+			console.log(cookingTime + " minutes of stiring the sausage." + "Total stir count:" + stirCount);
+			cookingTime++;
+		}
 	}
-	return cookPasta(true,minutesBoiling); //Reports back to the cookPasta function that it is fininshed
+	return stirCount;
 };
 
 // String Function
 var recipeLookup = function (source, medium) {
-	var lookup = "I will look up a recipe from " + source + " using the " + medium + ".";
-	return lookup;
+	var recipe = "I will look up a recipe from " + source + " using the " + medium + ".";
+	return recipe;
 };
 
 // Array Function
-var cookSauce = function (number, ingredients) {
-
+var cookSauce = function (cookTime, ingredients) {
+	for (var i = 0; i < sauceIngredients.length; i++){
+		console.log("Put the " + ingredients[i] + " in the pan!");
+	}
+	console.log("Everything is in the pan. Cook the sauce for " + cookTime + " minutes.");
+	return ingredients;
 };
 
 
 
-readyCheck(readyToCook);
+readyCheck(readyToCook); // Call readyCheck
+var cookedPasta = cookPasta(boiling, boilMins); // Call cookPasta and hold its return
+var stirCount = stirSausage(1);
+var recipe = recipeLookup(cookBook,reader); // Call recipeLookup and hold its return
+var test = cookSauce(2, sauceIngredients);
 
-cookPasta(boiling, boilMins);
-var lookup = recipeLookup(cookBook,reader);
+console.log(cookedPasta);
+console.log(stirCount);
+console.log(recipe);
+console.log(test);
+
 
 
 
