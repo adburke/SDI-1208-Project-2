@@ -24,7 +24,7 @@ var readyCheck = function (state) {
 
 var cookPasta = function (waterBoil, minutesBoiling) {
 	if ((waterBoil) && (minutesBoiling < 8 )) {
-		console.log("The pasta is still cooking.");
+		console.log("The pasta is still cooking. Keep stirring!");
 		stirPasta(minutesBoiling);
 	}
 	else {
@@ -33,6 +33,13 @@ var cookPasta = function (waterBoil, minutesBoiling) {
 	return true;
 };
 
+var stirPasta = function (minutesBoiling) {
+	while (minutesBoiling < 8){
+		var stirCount = minutesBoiling * 20;
+		minutesBoiling++;
+	}
+
+};
 
 readyCheck(readyToCook);
 
