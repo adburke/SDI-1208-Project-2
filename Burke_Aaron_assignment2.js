@@ -8,7 +8,7 @@
 var sauceIngredients = ["mushrooms", "onions", "garlic", "tomato paste", "tomato puree", "basil", "oregano", "parsley"];
 var readyToCook = true;
 var boiling = true;
-var boilMins = 2;
+var boilMins = 9;
 var cookBook = "The Joy of Cooking";
 var reader = "iPad";
 
@@ -48,6 +48,7 @@ var stirSausage = function (cookingTime) {
 			cookingTime++;
 		}
 	}
+	console.log("The sausage is finished!");
 	return stirCount;
 };
 
@@ -58,11 +59,25 @@ var recipeLookup = function (source, medium) {
 };
 
 // Array Function
-var cookSauce = function (cookTime, ingredients) {
-	for (var i = 0; i < sauceIngredients.length; i++){
-		console.log("Put the " + ingredients[i] + " in the pan!");
+var cookSauce = function (batchSize, ingredients) {
+	var sauceCookTime = 10;
+	if (batchSize < 2) {
+		sauceCookTime = 10;
 	}
-	console.log("Everything is in the pan. Cook the sauce for " + cookTime + " minutes.");
+	else {
+		sauceCookTime = sauceCookTime * batchSize / 2;
+	}
+	
+	for (var i = 0; i < sauceIngredients.length; i++){
+		if (batchSize < 2){
+			console.log("Put the " + ingredients[i] + " in the pan!");
+		}
+		else {
+			console.log("Put " + batchSize + "x the " + ingredients[i] + " in the pan!");
+		}
+
+	}
+	console.log("Everything is in the pan. Cook the sauce for " + sauceCookTime + " minutes.");
 	return ingredients;
 };
 
@@ -72,12 +87,12 @@ readyCheck(readyToCook); // Call readyCheck
 var cookedPasta = cookPasta(boiling, boilMins); // Call cookPasta and hold its return
 var stirCount = stirSausage(1);
 var recipe = recipeLookup(cookBook,reader); // Call recipeLookup and hold its return
-var test = cookSauce(2, sauceIngredients);
+var test = cookSauce(3, sauceIngredients);
 
 console.log(cookedPasta);
 console.log(stirCount);
 console.log(recipe);
-console.log(test);
+console.log(test.join());
 
 
 
