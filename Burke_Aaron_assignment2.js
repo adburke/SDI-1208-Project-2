@@ -29,16 +29,17 @@ var cookPasta = function (waterBoil, minutesBoiling) {
 	}
 	else {
 		console.log("The pasta is finished!");
+		return true;
 	}
-	return true;
 };
 
 var stirPasta = function (minutesBoiling) {
-	while (minutesBoiling < 8){
+	while (minutesBoiling <= 8){
 		var stirCount = minutesBoiling * 20;
+		console.log("Stiring pasta.");
 		minutesBoiling++;
 	}
-
+	return cookPasta(true,minutesBoiling);
 };
 
 readyCheck(readyToCook);
