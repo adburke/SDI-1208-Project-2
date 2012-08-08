@@ -8,9 +8,6 @@
 var ingredients = ["pasta", "sauce", "meatballs", "mushrooms", "onions"];
 var readyToCook = true;
 var boiling = true;
-var boilTimeMin = 8;
-var cupsOfWater = 8;
-var pastaBags = 1;
 
 // Procedure Function
 var readyCheck = function (state) {
@@ -22,10 +19,11 @@ var readyCheck = function (state) {
 	}
 };
 
+// Boolean Function
 var cookPasta = function (waterBoil, minutesBoiling) {
-	if ((waterBoil) && (minutesBoiling < 8 )) {
+	if ((waterBoil === true) && (minutesBoiling < 8 )) {
 		console.log("The pasta is still cooking. Keep stirring!");
-		stirPasta(minutesBoiling);
+		stirPasta(minutesBoiling); // Stirs the pasta until completion
 	}
 	else {
 		console.log("The pasta is finished!");
@@ -33,17 +31,22 @@ var cookPasta = function (waterBoil, minutesBoiling) {
 	}
 };
 
+// Number Function
 var stirPasta = function (minutesBoiling) {
 	while (minutesBoiling <= 8){
-		var stirCount = minutesBoiling * 20;
-		console.log("Stiring pasta.");
+		var stirCount = minutesBoiling * 2; // 2 Stirs for every minute
+		console.log(minutesBoiling + " Minutes of stiring pasta." + "Total stir count:" + stirCount);
 		minutesBoiling++;
 	}
-	return cookPasta(true,minutesBoiling);
+	return cookPasta(true,minutesBoiling); //Reports back to the cookPasta function that it is fininshed
 };
+
+// String Function
+
 
 readyCheck(readyToCook);
 
+cookPasta(boiling,2);
 
 
 
