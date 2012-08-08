@@ -8,6 +8,8 @@
 var ingredients = ["pasta", "sauce", "meatballs", "mushrooms", "onions"];
 var readyToCook = true;
 var boiling = true;
+var cookBook = "The Joy of Cooking";
+var reader = "iPad";
 
 // Procedure Function
 var readyCheck = function (state) {
@@ -21,7 +23,7 @@ var readyCheck = function (state) {
 
 // Boolean Function
 var cookPasta = function (waterBoil, minutesBoiling) {
-	if ((waterBoil === true) && (minutesBoiling < 8 )) {
+	if ((waterBoil) && (minutesBoiling < 8 )) {
 		console.log("The pasta is still cooking. Keep stirring!");
 		stirPasta(minutesBoiling); // Stirs the pasta until completion
 	}
@@ -42,11 +44,16 @@ var stirPasta = function (minutesBoiling) {
 };
 
 // String Function
-
+var recipeLookup = function (source, medium) {
+	var lookup = "I will look up a recipe from " + source + " using the " + medium + ".";
+	return lookup;
+};
 
 readyCheck(readyToCook);
 
 cookPasta(boiling,2);
+var lookup = recipeLookup(cookBook,reader);
+
 
 
 
