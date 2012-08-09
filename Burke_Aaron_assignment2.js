@@ -35,16 +35,16 @@ var cookPasta = function (waterBoil, minutesBoiling) {
 };
 
 // Number Function
-var stirSausage = function (cookingTime) {
+var cookSausage = function (cookingTime) {
 	var finishTime = 15;
 	while (cookingTime <= finishTime){
-		var stirCount = cookingTime * 2; // 2 Stirs for every minute
+		var timeLeft = finishTime - cookingTime; // 2 Stirs for every minute
 		if (cookingTime == 1){
-			console.log(cookingTime + " minute of stiring the sausage." + "Total stir count:" + stirCount);
+			console.log(cookingTime + " minute of stiring the sausage down." + "Time remaining:" + timeLeft);
 			cookingTime++;
 		}
 		else {
-			console.log(cookingTime + " minutes of stiring the sausage." + "Total stir count:" + stirCount);
+			console.log(cookingTime + " minutes of stiring the sausage down." + "Time remaining:" + timeLeft);
 			cookingTime++;
 		}
 	}
@@ -54,18 +54,18 @@ var stirSausage = function (cookingTime) {
 
 // String Function
 var recipeLookup = function (source, medium) {
-	var recipe = "I will look up a recipe from " + source + " using the " + medium + ".";
+	var recipe = "I found the recipe from " + source + " using the " + medium + ".";
 	return recipe;
 };
 
 // Array Function
 var cookSauce = function (batchSize, ingredients) {
-	var sauceCookTime = 10;
-	if (batchSize < 2) {
+	var sauceCookTime = 10; // Time to cook a single batch of sauce
+	if (batchSize < 2) {    // Checks for batch size
 		sauceCookTime = 10;
 	}
 	else {
-		sauceCookTime = sauceCookTime * batchSize / 2;
+		sauceCookTime = sauceCookTime * batchSize / 2;  // Larger batch sizes take longer to cook
 	}
 	
 	for (var i = 0; i < sauceIngredients.length; i++){
@@ -78,21 +78,40 @@ var cookSauce = function (batchSize, ingredients) {
 
 	}
 	console.log("Everything is in the pan. Cook the sauce for " + sauceCookTime + " minutes.");
+	while (sauceCookTime > 0){
+		if (sauceCookTime == 1){
+			console.log("Sauce is cooking away! Only " + sauceCookTime + " minute left.");
+		}
+		else {
+		console.log("Sauce is cooking away! Only " + sauceCookTime + " minutes left.");
+		}
+		sauceCookTime--;
+	}
+	console.log("Sauce is finished!");
 	return ingredients;
 };
 
 
 
 readyCheck(readyToCook); // Call readyCheck
-var cookedPasta = cookPasta(boiling, boilMins); // Call cookPasta and hold its return
-var stirCount = stirSausage(1);
-var recipe = recipeLookup(cookBook,reader); // Call recipeLookup and hold its return
+var cookedPasta = cookPasta(boiling, boilMins);
+if (cookedPasta === true){
+	var stirCount = cookSausage(13);
+}
+else {
+
+}
+//var stirCount = cookSausage(1);
+var recipe = recipeLookup(cookBook,reader);
 var test = cookSauce(3, sauceIngredients);
 
 console.log(cookedPasta);
 console.log(stirCount);
 console.log(recipe);
-console.log(test.join());
+
+
+//console.log("Your sauce tastes great! What did you put in it?");
+//console.log("These were the ingredients: " + test.join() + ".");
 
 
 
