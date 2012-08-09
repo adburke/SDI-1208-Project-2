@@ -10,7 +10,7 @@ var readyToCook = true;  // Are you ready to cook?
 var waterBoiling = true; // Is the water boiling?
 var waterBoilMins = 9;   // How long it has been boiling
 var cookBook = "The Joy of Cooking"; // Cookbook used
-var reader = "iPad"; // Medium for reading 
+var reader = "iPad"; // Medium for reading
 
 // Procedure Function - Checks to see if you are ready to cook or not
 var readyCheck = function (state) {
@@ -93,16 +93,27 @@ var cookSauce = function (batchSize, ingredients) {
 
 
 
-readyCheck(readyToCook); // Call readyCheck
-var cookedPasta = cookPasta(waterBoiling, waterBoilMins);
-var timeLeft = cookSausage(2);
-var recipe = recipeLookup(cookBook,reader);
-var test = cookSauce(3, sauceIngredients);
+readyCheck(readyToCook); // Call readyCheck Procedure
+console.log(" ");
+var cookedPasta = cookPasta(waterBoiling, waterBoilMins); // Call cookPasta Boolean function
+console.log(" ");
+var timeLeft = cookSausage(2); // Call cookSausage Number function
+console.log(" ");
+var recipe = recipeLookup(cookBook,reader); // Call recipeLookup String function
+console.log(" ");
+var sauce = cookSauce(3, sauceIngredients); // Call cookSauce Array function
 
+console.log(" ");
 console.log(cookedPasta);
-console.log(timeLeft);
+console.log(" ");
+console.log("How much time is left on the sausage?");
+console.log("The sausace has " + timeLeft + " minutes left.");
+console.log(" ");
+console.log("Great recipe where did you find it?");
 console.log(recipe);
-console.log(test.toString());
+console.log(" ");
+console.log("Your sauce tastes great! What did you put in it?");
+console.log("These were the ingredients: " + sauce.toString() + ".");
 
 
 //console.log("Your sauce tastes great! What did you put in it?");
