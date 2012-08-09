@@ -34,21 +34,21 @@ var cookPasta = function (waterBoil, minutesBoiling) {
 	}
 };
 
-// Number Function - 
+// Number Function - Checks how long the sausage has been cooking and cooks it for the rest of the time.
 var cookSausage = function (cookingTime) {
 	var finishTime = 15;
+	var timeLeft = finishTime - cookingTime;
 	while (cookingTime <= finishTime){
-		var timeLeft = finishTime - cookingTime;
 		if (cookingTime == 1){
-			console.log(cookingTime + " minute of stiring the sausage down." + "Time remaining:" + timeLeft);
-			cookingTime++;
+			console.log(cookingTime + " minute down. Stir the sausage!" + " Time remaining:" + timeLeft + " minutes.");
+			cookingTime += 5;
 		}
 		else {
-			console.log(cookingTime + " minutes of stiring the sausage down." + "Time remaining:" + timeLeft);
-			cookingTime++;
+			console.log(cookingTime + " minutes down. Stir the sausage!" + " Time remaining:" + timeLeft + " minutes.");
+			cookingTime += 5;
 		}
-		console.log("The sausage is finished!");
 	}
+	console.log("The sausage is finished!");
 	return timeLeft; // returns how much time was left to cook when the function was called
 };
 
@@ -85,7 +85,7 @@ var cookSauce = function (batchSize, ingredients) {
 		else {
 		console.log("Sauce is cooking away! Only " + sauceCookTime + " minutes left.");
 		}
-		sauceCookTime--;
+		sauceCookTime -= 5;
 	}
 	console.log("Sauce is finished!");
 	return ingredients;
@@ -95,7 +95,7 @@ var cookSauce = function (batchSize, ingredients) {
 
 readyCheck(readyToCook); // Call readyCheck
 var cookedPasta = cookPasta(waterBoiling, waterBoilMins);
-var timeLeft = cookSausage(5);
+var timeLeft = cookSausage(2);
 var recipe = recipeLookup(cookBook,reader);
 var test = cookSauce(3, sauceIngredients);
 
