@@ -38,7 +38,7 @@ var cookPasta = function (waterBoil, minutesBoiling) {
 var cookSausage = function (cookingTime) {
 	var finishTime = 15;
 	while (cookingTime <= finishTime){
-		var timeLeft = finishTime - cookingTime; // 2 Stirs for every minute
+		var timeLeft = finishTime - cookingTime;
 		if (cookingTime == 1){
 			console.log(cookingTime + " minute of stiring the sausage down." + "Time remaining:" + timeLeft);
 			cookingTime++;
@@ -48,8 +48,8 @@ var cookSausage = function (cookingTime) {
 			cookingTime++;
 		}
 		console.log("The sausage is finished!");
-		return timeLeft;
 	}
+	return timeLeft; // returns how much time was left to cook when the function was called
 };
 
 // String Function
@@ -95,19 +95,14 @@ var cookSauce = function (batchSize, ingredients) {
 
 readyCheck(readyToCook); // Call readyCheck
 var cookedPasta = cookPasta(waterBoiling, waterBoilMins);
-if (cookedPasta === true){
-	var stirCount = cookSausage(13);
-}
-else {
-
-}
-//var stirCount = cookSausage(1);
+var timeLeft = cookSausage(5);
 var recipe = recipeLookup(cookBook,reader);
 var test = cookSauce(3, sauceIngredients);
 
 console.log(cookedPasta);
 console.log(timeLeft);
 console.log(recipe);
+console.log(test.toString());
 
 
 //console.log("Your sauce tastes great! What did you put in it?");
