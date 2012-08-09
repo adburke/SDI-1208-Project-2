@@ -5,14 +5,14 @@
 	Making Spaghetti
 */
 
-var sauceIngredients = ["mushrooms", "onions", "garlic", "tomato paste", "tomato puree", "basil", "oregano", "parsley"];
-var readyToCook = true;
-var boiling = true;
-var boilMins = 9;
-var cookBook = "The Joy of Cooking";
-var reader = "iPad";
+var sauceIngredients = ["mushrooms", "onions", "garlic", "tomato paste", "tomato puree", "basil", "oregano", "parsley"]; // Ingredients for sauce
+var readyToCook = true;  // Are you ready to cook?
+var waterBoiling = true; // Is the water boiling?
+var waterBoilMins = 9;   // How long it has been boiling
+var cookBook = "The Joy of Cooking"; // Cookbook used
+var reader = "iPad"; // Medium for reading 
 
-// Procedure Function
+// Procedure Function - Checks to see if you are ready to cook or not
 var readyCheck = function (state) {
 	if (state) {
 		console.log("We are ready to cook some spaghetti!");
@@ -22,7 +22,7 @@ var readyCheck = function (state) {
 	}
 };
 
-// Boolean Function
+// Boolean Function - Decides if the pasta is done cooking or not
 var cookPasta = function (waterBoil, minutesBoiling) {
 	if ((waterBoil) && (minutesBoiling < 8 )) {
 		console.log("The pasta is still cooking. Keep stirring!");
@@ -34,7 +34,7 @@ var cookPasta = function (waterBoil, minutesBoiling) {
 	}
 };
 
-// Number Function
+// Number Function - 
 var cookSausage = function (cookingTime) {
 	var finishTime = 15;
 	while (cookingTime <= finishTime){
@@ -47,9 +47,9 @@ var cookSausage = function (cookingTime) {
 			console.log(cookingTime + " minutes of stiring the sausage down." + "Time remaining:" + timeLeft);
 			cookingTime++;
 		}
+		console.log("The sausage is finished!");
+		return timeLeft;
 	}
-	console.log("The sausage is finished!");
-	return stirCount;
 };
 
 // String Function
@@ -94,7 +94,7 @@ var cookSauce = function (batchSize, ingredients) {
 
 
 readyCheck(readyToCook); // Call readyCheck
-var cookedPasta = cookPasta(boiling, boilMins);
+var cookedPasta = cookPasta(waterBoiling, waterBoilMins);
 if (cookedPasta === true){
 	var stirCount = cookSausage(13);
 }
@@ -106,7 +106,7 @@ var recipe = recipeLookup(cookBook,reader);
 var test = cookSauce(3, sauceIngredients);
 
 console.log(cookedPasta);
-console.log(stirCount);
+console.log(timeLeft);
 console.log(recipe);
 
 
