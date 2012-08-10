@@ -109,10 +109,10 @@ var sauce = cookSauce(3, sauceIngredients); // Call cookSauce Array function
 console.log(" ");
 console.log("Has the pasta finished cooking?");
 if (cookedPasta === true){
-	console.log("Didn't you hear us before?! We said the pasta was done cooking.")
+	console.log("Didn't you hear us before?! We said the pasta was done cooking.");
 }
 else {
-	console.log("Nope still boiling away apparently.")
+	console.log("Nope still boiling away apparently.");
 }
 console.log(" ");
 console.log("How much time is left on the sausage?");
